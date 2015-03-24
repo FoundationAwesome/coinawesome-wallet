@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CoinAwesome Wallet</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="UTF-8">
+
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/index.css" rel="stylesheet">
+    <!-- <link href="css/btn.css" rel="stylesheet"> -->
+    <link href="css/tags.css" rel="stylesheet">
+    <link href="css/stylesheet.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,500,700,400italic">
+
+    <script src="js/libs/promise.min.js" type="text/javascript"></script>
+    <script src="js/libs/cryptojs.min.js" type="text/javascript"></script>
+    <script src="js/libs/coinAWE.js" type="text/javascript"></script>
+    <script src="js/libs/jquery.min.js" type="text/javascript"></script>
+    <script src="js/libs/jquery.timeago.js" type="text/javascript"></script>
+    <script src="js/libs/bootstrap.min.js" type="text/javascript"></script>
+    <script src="js/libs/qrcode.js" type="text/javascript"></script>
+    <script src="js/libs/tagger.js" type="text/javascript"></script>
+    <!-- // <script src="js/libs/unfluff.browser.js" type="text/javascript"></script> -->
+    <script src="js/libs/socket.io-1.1.0.js" type="text/javascript"></script>
+    <script src="js/libs/bitcore.min.js" type="text/javascript"></script>
+    <script src="js/preferences.js" type="text/javascript"></script>
+    <script src="js/util.js" type="text/javascript"></script>
+    <!--script src="js/currency-manager.js" type="text/javascript"></script-->
+    <script src="js/index.js" type="text/javascript"></script>
+
+</head>
+<body>
+
+<div id="cover" style="display: none;">
+    <div class="spinner">
+      <div class="rect1"></div>
+      <div class="rect2"></div>
+      <div class="rect3"></div>
+      <div class="rect4"></div>
+      <div class="rect5"></div>
+    </div>
+</div>
+<div id="main" class="container">
+    <div class="navbar navbar-default navbar-fixed-top header" role="navigation" id="header-menu">
+        <div class="loading-bar"></div>
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <div>
+                    <a href="/">
+                        <img class="hide forum-logo" src="/data/awesomeFace38.png" height="30px">
+                    </a>
+                    <a id='brand' >
+                        <h1 class="navbar-brand forum-title" data-toggle="tooltip" data-placement="bottom" title="Visit CoinAwesome Tips (external)">CoinAwesome <small>Wallet</small> </h1>
+                    </a>
+
+                    <div class="header-topic-title visible-xs">
+                        <span></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="navbar-collapse collapse navbar-ex1-collapse">
+                <ul id="main-nav" class="nav navbar-nav pull-left">
+<!--                     <li data-toggle="tooltip" data-placement="bottom" title="Unread">
+                        <a href="/unread" title="" data-original-title="Unread">
+                            <i id="unread-count" class="fa fa-fw fa-inbox unread-count" data-content="3"></i><span class="visible-xs-inline"> Unread</span>
+                        </a>
+                    </li> -->
+<!--                     <li data-toggle="tooltip" data-placement="bottom" title="Popular on SomaTip.com">
+                        <a id='popular'title="" data-original-title="Popular">
+                            <i class="fa fa-fw fa-fire"></i><span class="visible-xs-inline"> Popular</span>
+                        </a>
+                    </li> -->
+                    <li data-toggle="tooltip" data-placement="bottom" title="My Tipping History on CoinAwesome Tips (external)">
+                        <a id='mytips' title="" data-original-title="Recent">
+                            <i class="fa fa-fw fa-history"></i><span class="visible-xs-inline"> Tipping History</span>
+                        </a>
+                    </li>
+                    <li id='discuss-container' data-toggle="tooltip" data-placement="bottom" title="Discuss this on CoinAwesome Tips (external)" style='display:none'>
+                        <a id='discuss' title="" data-original-title="Discuss">
+                            <i class="fa fa-fw fa-comments-o"></i><span class="visible-xs-inline"> Discuss</span>
+                        </a>
+                    </li>
+
+<!--                     <li data-toggle="tooltip" data-placement="bottom" title="Users">
+                                                <a href="/users" title="" data-original-title="Users">
+                            <i class="fa fa-fw fa-users"></i><span class="visible-xs-inline"> Users</span>
+                        </a>
+                    </li>
+                                      
+                    <li class="visible-xs">
+                        <a href="/search" title="" id="mobile-search-button" data-original-title="Search">
+                            <i class="fa fa-search fa-fw"></i> Search
+                        </a>
+                    </li> -->
+
+                </ul>
+
+
+
+                
+
+
+                <ul class="nav navbar-nav navbar-right pull-right" id="top-menu-list">
+                <li class="active btn btn-w arning btn-small awesome-nav-tab" data-tab-target="#awesome-tip-tab" data-toggle="tooltip" data-placement="bottom" title="Tip">
+                        <!--span class="glyphicon glyphicon-heart"></span-->
+                        <b><span id='tip-button' class="glyphicon fa fa-smile-o"></span></b>
+                        
+                </li>
+                <li class="btn btn-w arning btn-small awesome-nav-tab" data-tab-target="#awesome-send-tab" data-toggle="tooltip" data-placement="bottom" title="Send to Address">
+                        
+                        <span class="glyphicon glyphicon-arrow-up"></span>
+                </li>
+                <li  id="awesome-receive-tab-li" class="btn btn-w arning btn-small awesome-nav-tab" data-tab-target="#awesome-receive-tab" data-toggle="tooltip" data-placement="bottom" title="Your Address">
+                        
+                        <span id="address-button"><b>@</b></span>
+                        <!-- <span class="glyphicon glyphicon-arrow-down"></span> -->
+                </li>
+                
+                <li  id="historyButton" class="btn btn-w arning btn-small awesome-nav-tab" data-tab-target="#awesome-activity-tab" data-toggle="tooltip" data-placement="bottom" title="Transaction History">
+                        <span class="glyphicon glyphicon-transfer"></span>
+                        <!-- <span class="badge">4</span> -->
+                </li>
+                <li class="btn btn-w arning btn-small dropdown-toggle" data-toggle="dropdown">
+                        <span class="glyphicon glyphicon-cog"></span>
+                </li>
+
+                <ul id="settingsMenu" class="dropdown-menu" >
+                    <li><a id="setPassword">Set Password/Encrypt</a></li>
+                    <!-- <li><a id="setCurrency">Set Currency</a></li> -->
+                    <!-- <li><a id="setUnits">Set AWE Units</a></li> -->
+                    <li class="divider">
+                    <li><a id="showPrivateKey">Show Private Key</a></li>
+                    <li><a id="importPrivateKey">Import Private Key</a></li>
+                    <li><a id="generateNewWallet">Generate New Wallet</a></li>
+                    <li class="divider">
+                    <li><a data-toggle="modal" data-target="#aboutModal">About</a></li>
+                </ul>
+
+            </div>
+
+            </div>
+        </div>
+    </div>
+
+
+    <div id="send" class="row panel">
+<!--         <div class="panel-heading">
+            <img class="awesome-logo" alt="WalletAwesome">
+            <div class="btn-group" id="top-menu-buttons">
+                <button type="button" id="awesome-tip-tab-button" class="active btn btn-warning btn-small awesome-nav-tab" data-tab-target="#awesome-tip-tab">
+                        <!--span class="glyphicon glyphicon-heart"></span- ->
+                        <span class="glyphicon glyphicon-heart"></span>
+                        
+                </button>
+                <button type="button" id="awesome-send-tab-button" class="btn btn-warning btn-small awesome-nav-tab" data-tab-target="#awesome-send-tab">
+                        
+                        <span class="glyphicon glyphicon-arrow-up"></span>
+                </button>
+                <button type="button" id="awesome-receive-tab-button" class="btn btn-warning btn-small awesome-nav-tab" data-tab-target="#awesome-receive-tab">
+                        
+                        <span class="glyphicon glyphicon-arrow-down"></span>
+                </button>
+                
+                <button type="button" id="historyButton" class="btn btn-warning btn-small awesome-nav-tab" data-tab-target="#awesome-activity-tab">
+                        <span class="glyphicon glyphicon-transfer"></span>
+                        <!-- <span class="badge">4</span> - ->
+                </button>
+                <button type="button" id="settingsButton" class="btn btn-warning btn-small dropdown-toggle" data-toggle="dropdown">
+                        <span class="glyphicon glyphicon-cog"></span>
+                </button>
+
+                <ul id="settingsMenu" class="dropdown-menu">
+                    <li><a id="setPassword">Set Password/Encrypt</a></li>
+                    <li><a id="setCurrency">Set Currency</a></li>
+                    <li><a id="setUnits">Set AWE Units</a></li>
+                    <li class="divider">
+                    <li><a id="showPrivateKey">Show Private Key</a></li>
+                    <li><a id="importPrivateKey">Import Private Key</a></li>
+                    <li><a id="generateNewWallet">Generate New Wallet</a></li>
+                    <li class="divider">
+                    <li><a data-toggle="modal" data-target="#aboutModal">About</a></li>
+                </ul>
+            </div>
+        </div> -->
+
+
+
+
+
+        <div class="panel-body">
+            <div class="centerBG"></div>
+            <div id="successAlert" class="alert alert-success alert-dismissable"  style="display: none;">
+                <button id="successAlertClose" type="button" class="close">&times;</button>
+                <p id="successAlertLabel">Success</p>
+            </div>
+            <div id="unknownErrorAlert" class="alert alert-danger alert-dismissable"  style="display: none;">
+                <button id="unkownErrorAlertClose" type="button" class="close">&times;</button>
+                <p id="unknownErrorAlertLabel">Unknown error</p>
+            </div>
+            <div class="awesome-tabs">
+                <div id="awesome-activity-tab" class="awesome-tab">
+                    <!--                     <div class="activity-header">
+                        <div class="transaction-bar">
+                            <div class="btn-group btn-group-xs">
+                                <div class="btn btn-default tx-filter active" data-filter="all">all</div>
+                                <div class="btn btn-default tx-filter" data-filter="in">in</div>
+                                <div class="btn btn-default tx-filter" data-filter="out">out</div>
+                            </div>
+                            <div class="btn-group btn-group-xs">
+                                <div class="btn btn-default active">all</div>
+                                <div class="btn btn-default">donations</div>
+                                <div class="btn btn-default">transfers</div>
+                            </div>
+                        </div>
+                    </div> -->
+
+                    <table class="table transaction-list">
+
+
+                        <thead>
+                        <tr><th>Time ago</th><th>Details</th><th>Amount</th></tr>
+                        </thead>
+                        <tbody id="transactionList">
+                        </tbody>
+                        <tbody id="transactionList-template" style='display:none'>
+                            <tr class="tx-even tx-template" >
+                                <td rowspan="1" class="tx-time" title="PUT TIME STRING HERE"></td>
+
+                                <td class="tx-incoming">
+                                    <span class="tx-info-label btn-link"><a class="tx-details-unusual btn-link" target="blank" href="http://blockchain.coinawesome.com/tx/3fc41f33a53c98a5fb25bef9ebeee214e079074f3a870cb7c7b6a8ecf9460e55">ADDRESS</a>
+                                    <!--    <div class="tx-info">
+                                        <div class="tx-info-row"><a class="tx-details-unusual btn-link" target="blank" href="https://blockchain.coinawesome.com/tx/3fc41f33a53c98a5fb25bef9ebeee214e079074f3a870cb7c7b6a8ecf9460e55">More details here</a>
+                                        </div>
+                                    </div> -->
+                                    </span>
+                                </td>
+
+                                <td class="tx-amount"></td>
+
+                                <!--  <td>
+                                <a class="tx-details-unusual btn-link" target="blank" href="https://blockchain.coinawesome.com/tx/3fc41f33a53c98a5fb25bef9ebeee214e079074f3a870cb7c7b6a8ecf9460e55">More details here</a>
+                                </td> -->
+                                <!--                                 
+                                <td class="tx-amount">TOTAL AMOUNT AWE</td>
+                                -->                            
+                                </tr>
+
+
+                        </tbody>
+                    </table>
+                    For more transactions visit the <a class='blockexplorer-link' href='http://blockexplorer.coinawesome.com/'>CoinAwesome blockchain explorer</a>.
+                </div>
+                <div id="awesome-tip-tab" class="awesome-tab" style='display: block'>
+                     <div><!-- <h4>To tip the owner of this page click the 'awesome' button. </h4> --></div>
+
+                    <!--input type="text" class="form-control" id="tipURL" value=''-->
+                    <!--                     
+                    <a style="display:none"><h5 id="tipURL" value=''></h5></a>
+                    -->
+
+                    <!-- GOLDEN RATIO ?  
+                     -->
+                    <div style='text-align:center;'>
+                        Support this page with a tip <br />
+                        <h3 ><span id='tipSum'>0</span> coins <small>[AWE]</small></h3>
+
+                        <div class="plus-minus-container" >
+                            <a class="btn btn-default plus" href="#" role="button"><i class="fa fa-plus plus"></i></a>
+                            <a class="btn btn-default minus" href="#" role="button"><i class="fa fa-minus minus"></i></a>
+                        </div>
+
+                    <br />
+                    </div>
+
+
+
+                    <input class='' type="text" id='tagger' value="" placeholder='type here max. 5 tags (optional)' data-role="tagsinput" style='display:none' />
+
+
+
+
+                    <p class="bg-info">
+                        
+                       
+                       
+                       <!-- <a class="btn btn-default" href="#" role="button">Less -(fib(clicknum)</a> -->
+
+                       <button type="button" id='send-button'class="btn btn-primary btn">Send</button>
+                       <!-- <button type="button" class="btn btn-success btn">Success</button>  -->
+                    </p>
+
+                    <div id='advanced-container'>
+                        <div id='page-info-toggle' type='button' class='btn button'><a >Advanced [<span>+</span>]</a></div>
+                    </div>
+<!--                     <div>
+                        <div type="button" class="awesome-button-container activeExtension" data-toggle="tooltip" data-placement="bottom" title="One-Click Tipping">
+                        
+                            <a href="awesome:" class=" ">
+                                <img class='awesome-coin-logo' src="/data/awesome19.png">
+                                <span class='awesome-button-text'>tip</span>
+                                <span><span class='awesome-button-text2 '></span></span>
+                            </a>
+
+                            <div class="sk-spinner sk-spinner-double-bounce">
+                                <div class="sk-double-bounce1"></div>
+                                <div class="sk-double-bounce2"></div>
+                            </div>
+                            <span>
+
+                            <span class='awesome-button-behind'></span></span>
+
+                            <div class='awesome-info'>
+                            </div>
+                            <div class='awesome-password'>
+                            </div>
+                            <div class='awesome-error'>
+                            </div>
+                        </div>
+                    </div> -->
+
+                     
+
+                    
+                    <div id='noMatch' style="display:none">This page (URL) has not been awesomed yet. Be the first one!</div>
+                    <div id='diffMatch' style="display:none">This page (URL) has been awesomed already! But the address we have got does not match the original awesome.</div>
+                     
+                    <!-- <div><h5>Click multiple times to increase the amount. </h5></div> -->
+
+
+                    <!-- <div id='page-info-toggle' type='button' class='btn button'><a >Details [+]</a></div> -->
+                    <div class="page-info-container details-toggle-target" style='background-color:; text-align:left;'>
+                        <div>
+                            <span for="" class="col-xs-2 ">URL</span>
+                            <span class="col-xs-10">
+                                <div><a><div id='tipURL'> </div></a></div>
+                            </span>
+                        </div>
+
+                        <div class="">
+                            <span ADDRESS HERE for="" class="col-xs-2">Address</span>
+                            <strong><span class="col-xs-10">
+                                <div id="addressAlert" class="alert alert-danger" style="display: none;">
+                                    Not a valid address.
+                                </div>
+                                <span id='tipAddrs'>
+                                    <div class="spinner">
+                                      <div class="rect1"></div>
+                                      <div class="rect2"></div>
+                                      <div class="rect3"></div>
+                                      <div class="rect4"></div>
+                                      <div class="rect5"></div>
+                                    </div>
+                                </span>
+                                <a id='claim' style='display:none'>[claim]</a>
+                            </span></strong>
+                        </div>
+                        <p class='container'><small>This is the address of the URL. To view your address click the @ symbol in the top row.</small></p>
+
+
+                        <div id='tips-total-container' style='display:none'>
+                            <span for="" class="col-xs-2 ">Received</span>
+                            <span class="col-xs-10">
+                                <span id='tipsTotal'> 
+                                    <div class="spinner">
+                                      <div class="rect1"></div>
+                                      <div class="rect2"></div>
+                                      <div class="rect3"></div>
+                                      <div class="rect4"></div>
+                                      <div class="rect5"></div>
+                                    </div>
+                                </span>
+                            </span>
+                        </div>
+
+
+
+
+                        <div class="local-addrs-container" style='display:none;'>
+                            <span for="" class="col-xs-2">Other</span>
+                            <span class="col-xs-10">
+                                <div id="addressAlert" class="alert alert-danger" style="display: none;">
+                                    Not a valid address.
+                                </div>
+                                <div class="local-addrs-container" style='display:none;'>
+                                    <select id="local-addrs" >
+                                        <optgroup label="All" style='display:none;'>
+                                        </optgroup>                                        
+                                        <!--
+                                         <optgroup label="User" style='display:none;'>
+                                        </optgroup>
+                                        <optgroup label="Head" style='display:none;'>
+                                        </optgroup>
+                                        <optgroup label="Anchors" style='display:none;'>
+                                        </optgroup>
+                                        <optgroup label="Body" style='display:none;'>
+                                        </optgroup> 
+                                        -->
+                                    </select>
+                                </div>
+
+                                    <!--                                 
+                                    <span id='atipAddrs-local'>
+                                    <div class="spinner">
+                                      <div class="rect1"></div>
+                                      <div class="rect2"></div>
+                                      <div class="rect3"></div>
+                                      <div class="rect4"></div>
+                                      <div class="rect5"></div>
+                                    </div>
+                                </span> -->
+                            </span>
+                        </div>
+
+                    </div>
+                </div>
+
+
+                <div id="awesome-send-tab" class="awesome-tab" style='display: '>
+ <!--                    <div class"container" style='padding: 0px 19px;'>Send coins...
+                    </div> -->
+                    <!-- send form start -->
+                    <form class="form-horizontal" role="form">
+                        <div class="form-group">
+                            <label for="sendAddress" class="col-xs-3 control-label">To Address</label>
+                                                    
+                            <div class="col-xs-8">
+                                <div id="addressAlert" class="alert alert-danger" style="display: none;">
+                                    Not a valid address.
+                                </div>
+                                <input type="text" class="form-control" id="sendAddress" value=''>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label id="amountLabel" for="amount" class="col-xs-3 control-label">Password</label>
+                            <div class="col-xs-8">
+                                <div id="amountAlert" class="alert alert-danger" style="display: none;">
+                                    Amount must be greater than zero and less than your balance.
+                                </div>
+                                <div class="input-group">
+                                    <input type="number" min="0" step="0.001" class="form-control" id="amount" placeholder="(incl. 0.0001 AWE fee)" >
+                                    <span id="sendUnit" class="input-group-addon">AWE</span>
+                                    <div class="input-group-btn">
+                                        <button id="sendButton" type="button" class="btn btn-warning">Send</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--div>You can also <a>scan a QR Code</a> to import the address.</div-->
+                    </form>
+                </div>
+                <div id="awesome-receive-tab" class="awesome-tab">
+                    <div class="row container">
+                        <div class="col-xs-4">
+                            <div id="qrcode">
+                            </div>
+                        </div>
+                        <div class="col-xs-8" style="left: -20px;">
+                            <h4>Your address:</h4>
+                            <h4 ><a id="textAddress" 
+                            class="text-center"><strong></strong></a></h4>
+                            <h5>Share it with the world!</h5>
+                        </div>
+                    </div>
+                </div>
+        </div>
+    </div>
+    <div class="panel-footer">
+        <span id='balanceContainer'> Balance: <strong><span id="balance">0 AWE</span></strong> </span>
+    </div>
+    </div>
+</div>
+
+<!-- Claim Modal -->
+<div class="modal fade" id="claimModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">How to claim an URL</h4>
+            </div>
+            <div class="modal-body">
+                <div class="alert alert-warning">
+                    <strong>How to claim? </strong> 
+                    <p>
+                    First <strong>embed your CoinAwesome address</strong> anywhere inside your website. The wallet scans through the HTML page and finds all addresses. Currently by default the <strong>first one</strong> is taken as the donation address.</p>
+                    <p>After you have embedded your address press the 'claim now' button inside here while on 
+                    your site. </p>
+                    <p><small>For advanced users we offer also an API for claiming.</small></p>
+                <p>You can claim the page only once every 3 hours.</p>
+
+<!--                     Make sure that you have an address embedded into your content. 
+                    This wallet scans through the list of following HTML elements in exactly this order to find a 'lucky' address in order to select it for the tip.
+                    <ol>
+                        <li>Head: an address in the HTML Head element</li>
+                        <li>Anchors: addresses in the body element</li>
+                        <li>Body: addresses in the rest of the body</li>
+                    </ol>
+                    As soon as it finds one single address it stops searching. If it finds instead two addresses (or more) <strong>temporary address</strong> is generated and associated with the URL until the ambiguity is removed by the page owner. -->
+                </div>
+                <!--                 
+                <div id="showPrivateKeyPasswordIncorrect" class="alert alert-danger">
+                    Your password is incorrect.
+                </div>
+                <div class="form-group">
+                    <input type="password" class="form-control" id="showPrivateKeyPassword" placeholder="Password">
+                </div>
+                <div id="privateKey" class="center-block">
+                    <div id="privateKeyQRCode"></div>
+                    <h5 id="privateKeyText" class="text-center"></h5>
+                </div>
+                -->
+                <p>
+                    <button id="claimConfirm" type="button" class="btn btn-">Claim now!&nbsp;<span class="glyphicon glyphicon-"></span></button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                </p> 
+                <div>For a complete list of all tipped sites visit <a href='http://tip.coinawesome.com/recent'>CoinAwesome Tips</a></div></br>
+
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal Claim Modal -->
+
+<!-- Send Confirmation -->
+<div class="modal fade" id="sendConfirmationModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Confirm Send</h4>
+            </div>
+            <div class="modal-body">
+                <p id="sendConfirmationText">
+                    Send Money
+                </p>
+                <div id="sendConfirmationPasswordIncorrect" class="alert alert-danger">
+                    Your password is incorrect.
+                </div>
+                <div class="form-group">
+                    <input type="password" class="form-control" id="sendConfirmationPassword" placeholder="Password">
+                </div>
+                <p>
+                    <button id="confirmSendButton" type="button" class="btn btn-warning">Send</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                </p>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<!-- Set Password -->
+<div class="modal fade" id="setPasswordModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Set Password/Encrypt Wallet</h4>
+            </div>
+            <div class="modal-body">
+                <p>
+                    Set a password to encrypt your wallet. You will be prompted for this password whenever you try to send AWE. This does not affect receiving AWE.
+                </p>
+                <div class="alert alert-danger">
+                    <strong>Warning!</strong> This password is not stored anywhere, and is not recoverable. If you lose your password your balance will be lost.
+                </div>
+                <div id="passwordMismatch" class="alert alert-danger">
+                    Your passwords do not match.
+                </div>
+                <div id="setPasswordIncorrect" class="alert alert-danger">
+                    Your password is incorrect.
+                </div>
+                <div id="setPasswordBlank" class="alert alert-danger">
+                    Please fill in all fields.
+                </div>
+                <div class="form-group">
+                    <input type="password" class="form-control" id="setPasswordPassword" placeholder="Password">
+                    <div id="removePasswordDiv" class="checkbox">
+                        <label>
+                            <input id="removePassword" type="checkbox" value="">
+                            Do not password protect
+                        </label>
+                    </div>
+                    <input type="password" class="form-control" id="newPassword" placeholder="New Password">
+                    <input type="password" class="form-control" id="confirmNewPassword" placeholder="Confirm New Password">
+                </div>
+                <p>
+                    <button id="confirmSetPassword" type="button" class="btn btn-warning">Set password</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                </p>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<!-- Set Currency/Units -->
+<div class="modal fade" id="setCurrencyModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div id="currencyRadioButtons" class="modal-body">
+                <table class="table table-striped table-bordered">
+                    <tbody id="tableBody"></tbody>
+                </table>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<!-- Show Private Key -->
+<div class="modal fade" id="showPrivateKeyModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Show Private Key/Export Wallet</h4>
+            </div>
+            <div class="modal-body">
+                <div class="alert alert-danger">
+                    <strong>Warning!</strong> Do not show your private key in public.
+                </div>
+                <div id="showPrivateKeyPasswordIncorrect" class="alert alert-danger">
+                    Your password is incorrect.
+                </div>
+                <div class="form-group">
+                    <input type="password" class="form-control" id="showPrivateKeyPassword" placeholder="Password">
+                </div>
+                <div id="privateKey" class="center-block">
+                    <div id="privateKeyQRCode"></div>
+                    <h5 id="privateKeyText" class="text-center"></h5>
+                </div>
+                <p>
+                    <button id="showPrivateKeyConfirm" type="button" class="btn btn-danger">Show Private Key&nbsp;<span class="glyphicon glyphicon-qrcode"></span></button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                </p>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<!-- Import Private Key -->
+<div class="modal fade" id="importPrivateKeyModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Import Private Key</h4>
+            </div>
+            <div class="modal-body">
+                <div class="alert alert-danger">
+                    <strong>Warning!</strong> All balance on current wallet will be lost.
+                </div>
+                <div id="importPrivateKeyPasswordIncorrect" class="alert alert-danger">
+                    Your password is incorrect.
+                </div>
+                <div id="importPrivateKeyBadPrivateKey" class="alert alert-danger">
+                    The private key is invalid.
+                </div>
+                <div class="form-group">
+                    <input type="password" class="form-control" id="importPrivateKeyPassword" placeholder="Password">
+                    <input type="text" class="form-control" id="importPrivateKeyPrivateKey" placeholder="Private Key">
+                </div>
+                <p>
+                    <button id="importPrivateKeyConfirm" type="button" class="btn btn-warning">Import Private Key</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                </p>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<!-- Generate New Wallet -->
+<div class="modal fade" id="generateNewWalletModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close">&times;</button>
+                <h4 class="modal-title" id="generateNewWalletLabel">Generate New Wallet</h4>
+            </div>
+            <div class="modal-body">
+                <div class="alert alert-danger">
+                    <strong>Warning!</strong> All balance on current wallet will be lost.
+                </div>
+                <div id="generateNewWalletPasswordIncorrect" class="alert alert-danger">
+                    Your password is incorrect.
+                </div>
+                <div class="form-group">
+                    <input type="password" class="form-control" id="generateNewWalletPassword" placeholder="Password">
+                </div>
+                <p>
+                    <button id="generateNewWalletConfirm" type="button" class="btn btn-danger">Generate New Wallet</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                </p>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<!-- About -->
+<div class="modal fade" id="aboutModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">About</h4>
+            </div>
+            <div class="modal-body">
+                <h5>CoinAwesome Wallet v<span id="version">1 </span> <img class=" forum-logo" src="/data/awesomeFace38.png" height="30px"></h5>
+                <p>CoinAwesome Wallet is developed by Mr. Awesome.<br/>
+                <a href="https://github.com/foundationawesome/walletawesome">View the source on GitHub.</a>
+                </p>
+
+                
+                <div class="alert alert-info">
+                    As Andreas Antonopolous said (slightly adapted): "Learn the basic lesson: Unless you do not control your keys it is not your [CoinAwesome]. Your keys, your [CoinAwesome] - not your keys, not your [CoinAwesome]" <small><a href='https://www.youtube.com/watch?v=1DG98FH1qlo'>View on Youtube</a></small>
+                </div>
+<!--                 <div class="alert alert-info">
+                    <strong> Development Tip Jar</strong> A123......
+                </div> -->
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+</body>
+</html>
+

@@ -1,0 +1,451 @@
+.container {
+    margin-left: 0;
+    width: 550px;
+    overflow: hidden;
+}
+
+a:hover {
+    color: #428bca;
+    text-decoration: none !important;
+}
+
+body {
+    max-height: 500px;
+}
+
+body .modal-dialog {
+    margin: 0;
+    max-width: 550px;
+    overflow: auto;
+}
+
+.panel-body {
+  max-height: 400px;
+  overflow: auto;
+  padding: 15px 15px 3px 15px !important;
+}
+
+#privateKeyQRCode {
+    margin-left: 77px;
+}
+
+#settingsMenu {
+    margin-left: 4px;
+}
+
+.no-padding {
+    margin: 0;
+}
+
+#sendConfirmationText,
+#privateKeyText {
+    word-wrap: break-word;
+}
+
+.panel {
+    margin-bottom: 0;
+}
+.panel-body {
+    min-height: 180px;
+    position:relative;
+    background-color: rgba(250, 250, 250, 0.50);
+ 
+}
+.panel-body .centerBG {
+    position:absolute;
+    /*background: url("../img/awesome-smiley-background-2943-hd-wallpapers.jpg") no-repeat scroll center center rgba(255,255,255,0.5);*/
+    background-size: 500px;
+    opacity: 0.02;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    content: "";
+    pointer-events:none;
+    z-index: 1;
+ 
+}
+
+#cover {
+    /*background: url("ajax-loader.gif") no-repeat scroll center center rgba(255,255,255,0.5);*/
+    z-index: 2147483647;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(255,255,255,0.5);
+
+  /*background: url(/data/awesomeBackground.jpg) center no-repeat;*/
+  /*opacity: 0.45;*/
+}
+
+
+#top-menu-buttons {
+    float: right;
+}
+
+.panel-heading {
+    border-bottom-color: #eea236;
+    background: url("../headingBG.png") no-repeat scroll center center rgba(255,255,255,0.5);
+    background-size: 500px;
+}
+
+.panel-footer {
+    padding: 6px 10px 26px 10px !important;
+    border-color: #eea236;
+    background-color: #f0ad4e;
+    background: url("../headingBG.png") no-repeat scroll center center rgba(255,255,255,0.5);
+    background-size: 777px;
+}
+
+#send .panel-heading {
+    height: 55px;
+}
+
+.awesome-logo-wrapper {
+    display: inline-block;
+}
+
+.awesome-tabs > .awesome-tab {
+    display: none;
+}
+
+.awesome-logo {
+    content:url("../WalletAwesome.png");
+    max-width: 207px;
+}
+
+.transaction-list {
+    /*margin-top: 10px;*/
+    table-layout: fixed;
+    overflow: hidden;
+}
+
+.transaction-list > thead > tr:first-child > th:first-child {
+    width:19%
+}
+.transaction-list > thead > tr:first-child > th:nth-child(2){
+    width:68%
+    /*font-size:12px;*/
+}
+.transaction-list > thead > tr:first-child > th:last-child {
+    width:19%
+}
+
+.transaction-list > thead,
+.transaction-list > thead > tr,
+.transaction-list > thead > tr > th
+ {
+    /*border: 1px solid #eea236;*/
+    /*background-color: #FDC16B;*/
+    color: black;
+}
+
+.transaction-list > tbody > tr:last-child {
+    border-bottom: 1px solid #E9D2B2;
+}
+
+.transaction-list > tbody > tr > td {
+    border: none;
+    font-size: 13px;
+    padding:5px;
+}
+
+.transaction-list > tbody > .tx-odd {
+    background: rgba(252, 234, 180, 0.35);
+}
+.transaction-list > tbody > .tx-even {
+    background: rgba(252, 234, 180, 0.0);
+}
+
+.transaction-list > tbody > tr:nth-child(2) {
+    max-width: 200px;
+}
+
+.tx-amount-negative {
+    color: darkred;
+}
+.tx-amount-positive {
+    color: limegreen;
+}
+
+.tx-info {
+    display:none;
+}
+
+.tx-info-row {
+    margin-top: 10px;
+}
+
+.tx-address {
+    word-break: break-all;
+}
+
+.btn-link {
+    color: #DA8000;
+}
+
+.btn-link:hover {
+    color: #B46A00;
+}
+
+
+#balanceContainer {
+    color: black;
+    float:right;
+    /*color: white;*/
+/*    position: absolute;
+    right: 5px;
+    bottom: 5px;*/
+    padding: 9px 13px;
+    background-color: rgba(255, 255, 255, 0.19);
+    border-radius: 3px;
+}
+#awesomeBtnContainer {
+    padding: 30px 100px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+#tipURL {
+    word-wrap: break-word;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.bootstrap-tagsinput {
+    width: 100%;
+    display:block;
+}
+
+#tipAddrs {
+    word-wrap: break-word;
+}
+
+.awesome-button-container {
+    /*margin: 33px auto;*/
+    margin-left: auto;
+    margin-right: auto;
+    display: block !important;
+    /*width: 120px !important;*/
+    text-align: center;
+}
+
+.glyphicon {
+    font-weight: bold;
+}
+
+#awesome-tip-tab > div{
+    text-align: center;
+}
+.awesome-button-text {
+    text-align: center !important;
+}
+.sk-spinner-double-bounce.sk-spinner {
+  left:4px !important;
+}
+
+.page-info-container > span {
+    padding: 3px 0;
+}
+
+
+
+.spinner {
+  /*margin: 100px auto;*/
+  width: 50px;
+  height: 18px;
+  /*text-align: center;*/
+  font-size: 10px;
+}
+
+
+.spinner > div {
+  background-color: #eea236;
+  height: 100%;
+  width: 6px;
+  display: inline-block;
+  
+  -webkit-animation: stretchdelay 1.2s infinite ease-in-out;
+  animation: stretchdelay 1.2s infinite ease-in-out;
+}
+
+#cover .spinner {
+  margin: 112px auto;
+  width: 300px;
+  height: 60px;
+  text-align: center;
+  font-size: 10px;
+}
+#cover .spinner > div {
+  background-color: #eea236;
+  height: 100%;
+  width: 25px;
+  border-radius: 122px;
+}
+
+.spinner .rect2 {
+  -webkit-animation-delay: -1.1s;
+  animation-delay: -1.1s;
+}
+
+.spinner .rect3 {
+  -webkit-animation-delay: -1.0s;
+  animation-delay: -1.0s;
+}
+
+.spinner .rect4 {
+  -webkit-animation-delay: -0.9s;
+  animation-delay: -0.9s;
+}
+
+.spinner .rect5 {
+  -webkit-animation-delay: -0.8s;
+  animation-delay: -0.8s;
+}
+
+@-webkit-keyframes stretchdelay {
+  0%, 40%, 100% { -webkit-transform: scaleY(0.4) }  
+  20% { -webkit-transform: scaleY(1.0) }
+}
+
+@keyframes stretchdelay {
+  0%, 40%, 100% { 
+    transform: scaleY(0.4);
+    -webkit-transform: scaleY(0.4);
+  }  20% { 
+    transform: scaleY(1.0);
+    -webkit-transform: scaleY(1.0);
+  }
+}
+
+.tx-amount {
+  text-align: right;
+}
+
+select {
+  background-color: white;
+  border-radius: 4px;
+  border-style: dotted;
+}
+
+li.btn.btn-small.awesome-nav-tab, 
+li.btn.btn-small.dropdown-toggle {
+height: 50px;
+width: 50px;
+}
+
+span.glyphicon {
+padding-top: 8px;
+}
+
+/*.navbar-default .navbar-nav>li>a {
+color: #777;
+height: 45px;
+width: 45px;
+}*/
+
+.navbar-brand {
+float: left;
+padding: 15px 8px;
+font-size: 18px;
+margin-left: 0px !important;
+/* line-height: 20px; */
+ height: 50px; 
+ /*font-style:italic;*/
+}
+
+body {
+  padding-top: 50px !important;
+  padding-bottom: 0px !important;
+  width: 550px !important; 
+}
+
+.panel {
+  margin-bottom: 0px !important;
+}
+.table>tbody>tr>td {
+  padding: 3px !important;
+  border-top:0px !important;
+}
+
+.navbar {
+  height:50px !important;
+}
+.navbar li, .navbar a{
+cursor: pointer;
+  
+}
+
+
+
+/*@media (max-width: 111px) {*/
+    .visible-xs-inline {
+        /*display:inline !important*/
+        display:none !important;
+    }
+/*}*/
+
+/*@media (min-width: 111px) {*/
+    .container {
+        width:550px !important;
+    }
+/*}*/
+
+    .navbar-collapse.collapse {
+        display: block !important;
+        height: 50px !important;
+        padding-bottom: 0;
+        overflow: visible !important
+    }
+
+
+
+
+.page-info-toggle {
+    position:absolute;
+    float: left;
+    line-height: 0.6;
+}
+
+#awesome-tip-tab .bootstrap-tagsinput {
+  display:none;
+}
+
+.panel-footer {
+  height: 45px;
+}
+
+.details-toggle-target {
+  display:none;
+}
+
+.bg-info {
+  text-align: center;
+  background-color: inherit !important;
+}
+
+#top-menu-list > li {
+  border: 0px solid transparent;
+}
+#top-menu-list .btn {
+  font-size: 17px;
+}
+.dropdown-menu>li>a {
+  cursor:pointer;
+}
+
+#address-button {
+  font-size: 19px;
+  line-height: 1.6;
+}
+
+#tip-button {
+  font-size: 19px;
+/* font-style: oblique; */
+font-weight: 600;
+}
+
+#advanced-container {
+  text-align:right !important;
+}

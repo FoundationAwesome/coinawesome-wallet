@@ -1,0 +1,14 @@
+{
+    "name": "CoinAwesome Wallet",
+    "title": "CoinAwesome Digital Currency Wallet Extension",
+    "description": "CoinAwesome in the browser. Tip, send and receive instantly on any web page.",
+    "author": "Mr. Awesome",
+    "license": "MIT",
+    "version": "1.0",
+    "permissions": {
+        "cross-domain-content": [
+            "http://localhost:3000/",
+            "https://blockchain.coinawesome.com/"
+        ]
+    }
+}

@@ -1,0 +1,67 @@
+{
+    "author": "Mr Awesome",
+    "description": "CoinAwesome Browser Wallet. Donate, send and receive instantly AWE on any web page.",
+    "version": "0.1",
+
+    "browser_action": {
+        "default_icon": {
+            "19": "data/awesomeFace19.png",
+            "38": "data/awesomeFace38.png"
+        },
+        "default_popup": "data/index.html",
+        "default_title": "CoinAwesome Wallet"
+    },
+    "background": {
+        "scripts": [
+            "data/js/libs/jquery.min.js",
+            "data/js/libs/socket.io-1.1.0.js",
+            "data/js/libs/cryptojs.min.js",
+            "data/js/libs/coinAWE.js",
+            "data/js/util.js",
+            "data/js/preferences.js",
+            "data/js/wallet.js",
+            "data/js/background.js"
+        ]
+    },
+    "content_scripts": [{
+        "all_frames": true,
+        "js": [
+            "data/js/libs/jquery.min.js",
+            "data/js/libs/cryptojs.min.js",
+            "data/js/libs/coinAWE.js",
+            "data/js/util.js",
+            "data/js/preferences.js",
+            "data/js/wallet.js",
+            "data/js/btn.js",
+            "data/js/bitId.js"
+        ],
+        "matches": [
+            "<all_urls>"
+        ]
+    }],
+    "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self';",
+    "icons": {
+        "128": "data/awesomeFace128.png",
+        "16": "data/awesomeFace16.png",
+        "48": "data/awesomeFace48.png"
+    },
+    "manifest_version": 2,
+    "name": "CoinAwesome Browser Wallet",
+    "permissions": [
+        "clipboardWrite",
+        "contextMenus",
+        "activeTab",
+        "<all_urls>",
+        "storage"
+    ],
+    "web_accessible_resources": [
+        "data/*"
+    ],
+    "commands": {
+        "_execute_browser_action": {
+            "suggested_key": {
+                "default": "Ctrl+Shift+A"
+            }
+        }
+    }
+}

@@ -1,0 +1,28 @@
+
+
+   "content_scripts_test":[  
+      {  
+         "all_frames":true,
+         "css":[  
+            "data/test/jasmine.css"
+         ],
+         "js":[  
+            "data/test/jasmine.js",
+            "data/test/jasmine-html.js",
+            "data/test/boot.js",
+            "data/test/test.js",
+            "data/js/libs/jquery.min.js",
+            "data/js/libs/cryptojs.min.js",
+            "data/js/libs/bitcoinjs-lib.min.js",
+            "data/js/util.js",
+            "data/js/preferences.js",
+            "data/js/currency-manager.js",
+            "data/js/wallet.js",
+            "data/js/paypopup.js",
+            "data/js/btn.js"
+         ],
+         "matches":[  
+            "<all_urls>"
+         ]
+      }
+   ],

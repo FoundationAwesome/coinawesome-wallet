@@ -1,0 +1,337 @@
+
+.awesome-coin-logo {
+    max-width: 19px;
+}
+
+
+.awesome-button-container {
+/*    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;*/
+    display:inline-block;
+    line-height:12px;
+    font-style: italic;
+    position: relative;
+    font-family: Ubuntu, Calibri, Arial,sans-serif;
+    font-weight: 700;
+    color:rgba(0,0,0,0.55);
+}
+
+/*
+/*INFO BOX* /
+.awesome-button-container > span.pointer {
+    position: relative;
+    background:#fff;
+    box-shadow:1px 1px 2px rgba(0,0,0,0.05);
+    border:1px solid #ddd;
+    position:relative;
+    min-height:14px;
+    max-height:14px;
+    min-width:14px;
+    font-size:9px;
+    margin-left:3px;
+    border-radius:12px;
+    padding:3px;
+    vertical-align:middle;
+    text-align:middle;
+
+    display:inline-block;
+    vertical-align:middle;
+    height:18px;
+
+}
+
+.awesome-button-container > span.pointer:after,
+.awesome-button-container > span.pointer:before {
+    right:94%;
+    border:solid transparent;
+    content:" ";
+    height:0;
+    width:0;
+    position:absolute;
+    pointer-events:none;
+}
+
+.awesome-button-container > span.pointer:after {
+    top:50%;
+    margin-top:-5px;
+    border-color:rgba(255,255,255,0) #fff rgba(255,255,255,0) rgba(255,255,255,0);
+    border-width:5px;
+}
+
+.awesome-button-container > span.pointer:before {
+    top:50%;
+    margin-top:-6px;
+    border-color:rgba(221,221,221,0) #ddd rgba(221,221,221,0) rgba(221,221,221,0);
+    border-width:6px;
+}
+
+*/
+
+
+/* BLUE BUTTON */
+.awesome-button-container > a:hover {
+    /* The first rule is a fallback */
+    background-position:top left;
+    background-position:top left, bottom right, 0 0, 0 0;
+
+    background-color: #7FD1FF;
+
+    box-shadow:1px 1px 2px rgba(0,0,0,0.20);
+}
+
+.awesome-button-container > a > img,
+.awesome-button-container > a > span {
+    display:inline-block;
+    vertical-align:middle;
+}
+
+/* BUTTON TEXT */
+.awesome-button-container > a > span {
+    color: white;
+    /*font-weight:700;*/
+    margin: 0px 8px 2px 0px;
+    font-style: italic;
+    font-weight: 700;
+    font-size: 17px;
+}
+.awesomed .awesome-button-text {
+    color: white;
+    font-weight:700;
+    /*margin: 0px 3px 2px 0px;*/
+    font-style: italic;
+    font-weight: 700;
+    /*font-size: 12px;*/
+}
+
+
+.awesome-button-container > a {
+    display: inline-block;
+    background: linear-gradient(to bottom, #1164CE 0%,#6060EC 100%);
+
+
+    /* Overriding the default underline styling of the links */
+    text-decoration: none !important;
+    white-space: nowrap;
+
+    cursor:pointer;
+
+    background-repeat:no-repeat;
+
+    /* The following two rules are fallbacks */
+    background-position:bottom left;
+    background-image:url('button_bg.png');
+
+    /* CSS3 background positioning property with multiple values. The background
+       images themselves are defined in the individual color classes */
+    background-position:bottom left, top right, 0 0, 0 0;
+    background-clip:border-box;
+
+    border-radius:8px;
+
+    /* Animating the background positions with CSS3 */
+    /* Currently works only in Safari/Chrome */
+
+    -webkit-transition:background-position 1.3s;
+    -moz-transition:background-position 1.3s;
+    -o-transition:background-position 1.3s;
+    transition:background-position 1.3s,
+        background-color 0.3s ease;
+    background-color: #48b5f2;
+
+    box-shadow:1px 1px 2px rgba(0,0,0,0.15);
+
+
+    /*MAKES RIGHT BORDERS EDGY*/
+/*    border-top-left-radius: 4em;
+    border-bottom-left-radius: 4em;*/
+
+}
+
+.awesomed.awesome-button-container > a {
+    transition: background-color 0.3s ease;
+    background-color: #77DC11;
+    background-color: #00DC07;
+}
+
+.awesomed.awesome-button-container:hover > a {
+    background-color: #B3F077;
+}
+
+.fresh.awesome-button-container > a {
+    transition: background-color 0.3s ease;
+    background-color: #FEF200;
+}
+.fresh.awesome-button-container:hover > a {
+    background-color: rgba(255, 248, 105, 1);
+}
+
+
+.awesome-button-container > a > img {
+    border:0;
+    margin:0 0 0 -2px !important;
+    padding:0;
+/*    box-shadow: 1px 1px 2px rgba(0,0,0,0.15) ;
+    border-radius: 100px;
+    background-color:white;*/
+    width:13;
+    height:13;
+
+    -webkit-transition: 1s ease-in-out;
+    -moz-transition: 1s ease-in-out;
+    -o-transition: 1s ease-in-out;
+    transition: 1s ease-in-out;
+
+}
+
+
+.awesome-button-container > a:hover > img {
+    -webkit-transform: rotate(1800deg);
+    -moz-transform: rotate(1800deg);
+    -o-transform: rotate(1800deg);
+    -ms-transform: rotate(1800deg);
+    transform: rotate(1800deg);
+}
+
+.success.awesome-button-container > a > img {
+    -webkit-transform: translate(0px,-1000px);
+    -moz-transform: translate(0px,-1000px);
+    -o-transform: translate(0px,-1000px);
+    -ms-transform: translate(540px,-1000px);
+    transform: translate(0px,-1000px);
+}
+
+
+.awesome-info {
+    display:none;
+    font-size: 12px;
+    position:absolute;
+    background-color: white;
+    top:19px;
+    left: 17px;
+    box-shadow: 1px 1px 2px rgba(0,0,0,0.15) ;
+    border-radius: 0  10px 10px ;
+    opacity: 0.9;
+    padding: 7px 10px;
+
+    -webkit-transition: 1s ease-in-out;
+    -moz-transition: 1s ease-in-out;
+    -o-transition: 1s ease-in-out;
+    transition: .51s ease-in-out;
+}
+.visible-info .awesome-info {
+    display:block;
+}
+body {
+    background-color: transparent;
+}
+.awesome-button-text2 {
+    font-size:10px !important;
+    bottom: 0px;
+    line-height: 8px;
+
+}
+.awesome-button-text {
+    text-align: right;
+    width: 74px;
+    display:inline-block;
+    margin-right:1px !important;
+
+    /*transform: translate(3em,0);*/
+}
+
+.awesome-button-behind {
+
+    display:inline-block;
+    margin-right:1px !important;
+    font-size:12px !important;
+
+    /*transform: translate(3em,0);*/
+}
+
+
+
+
+/*
+ *  Usage:
+ *
+ *    <div class="sk-spinner sk-spinner-double-bounce">
+ *      <div class="sk-double-bounce1"></div>
+ *      <div class="sk-double-bounce2"></div>
+ *    </div>
+ *
+ */
+.sk-spinner-double-bounce.sk-spinner {
+  top:0px;
+  left:-2px;
+  position: absolute;
+  /*top:6px;*/
+  /*left:-110px;*/
+  /*position: relative;*/
+  display: inline-block;
+  margin: 0 auto; 
+  height: 19px;
+  width: 19px;
+}
+.sk-spinner-double-bounce .sk-double-bounce1, 
+.sk-spinner-double-bounce .sk-double-bounce2 {
+    position:absolute;
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  /*background-color: #F3FF00;*/
+  background-color: white;
+  /*opacity: 0.2;*/
+  opacity: 0.3;
+  position: absolute;
+  top: 0;
+  left: 0;
+  -webkit-animation: sk-doubleBounce 2s infinite ease-in-out;
+          animation: sk-doubleBounce 2s infinite ease-in-out; }
+.sk-spinner-double-bounce .sk-double-bounce2 {
+    background-color: #F3FF00;
+    opacity: 0.2;
+  -webkit-animation-delay: -1s;
+          animation-delay: -1s; }
+
+
+@-webkit-keyframes sk-doubleBounce {
+  0%, 100% {
+    -webkit-transform: scale(0);
+            transform: scale(0); }
+
+  50% {
+    -webkit-transform: scale(1);
+            transform: scale(1); } }
+
+@keyframes sk-doubleBounce {
+  0%, 100% {
+    -webkit-transform: scale(0);
+            transform: scale(0); }
+
+  50% {
+    -webkit-transform: scale(1);
+            transform: scale(1); } }
+
+
+
+ .awesome-button-container:hover .sk-double-bounce1 {
+    background-color: white;
+    opacity: 0.4
+      -webkit-animation: sk-doubleBounce 1s infinite ease-in-out;
+          animation: sk-doubleBounce 1s infinite ease-in-out;
+}
+ .awesome-button-container:hover .sk-double-bounce2 {
+    background-color: white;
+      -webkit-animation-delay: -0.5s;
+          animation-delay: -0.5s;
+    opacity: 0.4
+      -webkit-animation: sk-doubleBounce 1s infinite ease-in-out;
+          animation: sk-doubleBounce 1s infinite ease-in-out;
+}
+
+
+.ib {
+    display:inline-block;
+}
