@@ -232,7 +232,7 @@
                                 <td rowspan="1" class="tx-time" title="PUT TIME STRING HERE"></td>
 
                                 <td class="tx-incoming">
-                                    <span class="tx-info-label btn-link"><a class="tx-details-unusual btn-link" target="blank" href="http://blockchain.coinawesome.com/tx/3fc41f33a53c98a5fb25bef9ebeee214e079074f3a870cb7c7b6a8ecf9460e55">ADDRESS</a>
+                                    <span class="tx-info-label btn-link"><a class="tx-details-unusual btn-link" target="blank" href="http://api.coinawesome.com/tx/3fc41f33a53c98a5fb25bef9ebeee214e079074f3a870cb7c7b6a8ecf9460e55">ADDRESS</a>
                                     <!--    <div class="tx-info">
                                         <div class="tx-info-row"><a class="tx-details-unusual btn-link" target="blank" href="https://blockchain.coinawesome.com/tx/3fc41f33a53c98a5fb25bef9ebeee214e079074f3a870cb7c7b6a8ecf9460e55">More details here</a>
                                         </div>
@@ -253,77 +253,62 @@
 
                         </tbody>
                     </table>
-                    For more transactions visit the <a class='blockexplorer-link' href='http://blockexplorer.coinawesome.com/'>CoinAwesome blockchain explorer</a>.
+                    For more transactions visit the <a class='blockexplorer-link' href='http://api.coinawesome.com/'>CoinAwesome blockchain explorer</a>.
                 </div>
                 <div id="awesome-tip-tab" class="awesome-tab" style='display: block'>
-                     <div><!-- <h4>To tip the owner of this page click the 'awesome' button. </h4> --></div>
 
-                    <!--input type="text" class="form-control" id="tipURL" value=''-->
-                    <!--                     
-                    <a style="display:none"><h5 id="tipURL" value=''></h5></a>
-                    -->
+                    <div class='row'>
+                      <!-- <div class='col-xs-4'>
+                      </div> -->
+                      <div class='col-xs-12'>
+                         <div><!-- <h4>To tip the owner of this page click the 'awesome' button. </h4> --></div>
 
-                    <!-- GOLDEN RATIO ?  
-                     -->
-                    <div style='text-align:center;'>
-                        Support this page with a tip <br />
-                        <h3 ><span id='tipSum'>0</span> coins <small>[AWE]</small></h3>
+                        <!--input type="text" class="form-control" id="tipURL" value=''-->
+                        <!--                     
+                        <a style="display:none"><h5 id="tipURL" value=''></h5></a>
+                        -->
 
-                        <div class="plus-minus-container" >
-                            <a class="btn btn-default plus" href="#" role="button"><i class="fa fa-plus plus"></i></a>
-                            <a class="btn btn-default minus" href="#" role="button"><i class="fa fa-minus minus"></i></a>
+                        <!-- GOLDEN RATIO ?  
+                         -->
+                        <div style='text-align:center;'>
+                            <h4>Support this page (URL) with a tip</h3> 
+
+                            <!-- <br /> -->
+                            <h3 ><span id='tipSum'>0</span> coins <small>[AWE]</small></h3>
+
+                            <div class="plus-minus-container" >
+                                <a class="btn btn-default plus" href="#" role="button"><i class="fa fa-plus plus"></i></a>
+                                <a class="btn btn-default minus" href="#" role="button"><i class="fa fa-minus minus"></i></a>
+                            </div>
+
+
+
+
+
+                        <input class='' type="text" id='tagger' value="" placeholder='type here max. 5 tags (optional)' data-role="tagsinput" style='display:none' />
+
+
+
+
+                        <p class="bg-info">
+                            
+                           
+                           
+                           <!-- <a class="btn btn-default" href="#" role="button">Less -(fib(clicknum)</a> -->
+
+                           <button type="button" id='send-button'class="btn btn-primary btn">Awesome</button>
+                           <!-- <button type="button" class="btn btn-success btn">Success</button>  -->
+                        </p>
+
+                        <br />
                         </div>
-
-                    <br />
+                      </div>
                     </div>
-
-
-
-                    <input class='' type="text" id='tagger' value="" placeholder='type here max. 5 tags (optional)' data-role="tagsinput" style='display:none' />
-
-
-
-
-                    <p class="bg-info">
-                        
-                       
-                       
-                       <!-- <a class="btn btn-default" href="#" role="button">Less -(fib(clicknum)</a> -->
-
-                       <button type="button" id='send-button'class="btn btn-primary btn">Send</button>
-                       <!-- <button type="button" class="btn btn-success btn">Success</button>  -->
-                    </p>
 
                     <div id='advanced-container'>
                         <div id='page-info-toggle' type='button' class='btn button'><a >Advanced [<span>+</span>]</a></div>
                     </div>
-<!--                     <div>
-                        <div type="button" class="awesome-button-container activeExtension" data-toggle="tooltip" data-placement="bottom" title="One-Click Tipping">
-                        
-                            <a href="awesome:" class=" ">
-                                <img class='awesome-coin-logo' src="/data/awesome19.png">
-                                <span class='awesome-button-text'>tip</span>
-                                <span><span class='awesome-button-text2 '></span></span>
-                            </a>
-
-                            <div class="sk-spinner sk-spinner-double-bounce">
-                                <div class="sk-double-bounce1"></div>
-                                <div class="sk-double-bounce2"></div>
-                            </div>
-                            <span>
-
-                            <span class='awesome-button-behind'></span></span>
-
-                            <div class='awesome-info'>
-                            </div>
-                            <div class='awesome-password'>
-                            </div>
-                            <div class='awesome-error'>
-                            </div>
-                        </div>
-                    </div> -->
-
-                     
+          
 
                     
                     <div id='noMatch' style="display:none">This page (URL) has not been awesomed yet. Be the first one!</div>
@@ -376,8 +361,6 @@
                                 </span>
                             </span>
                         </div>
-
-
 
 
                         <div class="local-addrs-container" style='display:none;'>
@@ -708,12 +691,12 @@
             <div class="modal-body">
                 <h5>CoinAwesome Wallet v<span id="version">1 </span> <img class=" forum-logo" src="/data/awesomeFace38.png" height="30px"></h5>
                 <p>CoinAwesome Wallet is developed by Mr. Awesome.<br/>
-                <a href="https://github.com/foundationawesome/walletawesome">View the source on GitHub.</a>
+                <a href="https://github.com/foundationawesome/coinawesome-wallet">View the source on GitHub.</a>
                 </p>
 
                 
                 <div class="alert alert-info">
-                    As Andreas Antonopolous said (slightly adapted): "Learn the basic lesson: Unless you do not control your keys it is not your [CoinAwesome]. Your keys, your [CoinAwesome] - not your keys, not your [CoinAwesome]" <small><a href='https://www.youtube.com/watch?v=1DG98FH1qlo'>View on Youtube</a></small>
+                    As Andreas Antonopolous said (slightly adapted): "Learn the basic lesson: Unless you do not control your keys it is not your coin. Your keys, your coin - not your keys, not your coin" <small><a href='https://www.youtube.com/watch?v=1DG98FH1qlo'>View on Youtube</a></small>
                 </div>
 <!--                 <div class="alert alert-info">
                     <strong> Development Tip Jar</strong> A123......

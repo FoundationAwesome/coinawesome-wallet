@@ -707,7 +707,7 @@ $(document).ready(function() {
 
 
                 txHtmlItem.find('a.tx-details-unusual').attr('href',
-                    'https://blockchain.coinawesome.com/tx/' + tx.txid).text(address)
+                    'http://api.coinawesome.com/tx/' + tx.txid).text(address)
                 var d = new Date(tx.time * 1000);
                 txHtmlItem.find('.tx-time').attr('title',
                     d.toISOString())
@@ -1206,7 +1206,7 @@ $(document).ready(function() {
 
         $('.blockexplorer-link').click(function() {
             chrome.tabs.create({
-                url: 'https://blockchain.coinawesome.com/address/' + wallet.getAddress()
+                url: 'http://api.coinawesome.com/address/' + wallet.getAddress()
             }, function(e) {
                 console.log(e)
             })

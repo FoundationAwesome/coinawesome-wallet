@@ -20,7 +20,7 @@
   padding: 0;
   margin: 0;
   /*width: auto !important;*/
-  max-width: inherit;
+  /*max-width: inherit;*/
   width: 100%;
 }
 .bootstrap-tagsinput input:focus {

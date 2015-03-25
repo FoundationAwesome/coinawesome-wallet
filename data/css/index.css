@@ -4,6 +4,10 @@
     overflow: hidden;
 }
 
+#send-button {
+  margin: 11px 0px 0px 0px;
+}
+
 a:hover {
     color: #428bca;
     text-decoration: none !important;
@@ -20,7 +24,7 @@ body .modal-dialog {
 }
 
 .panel-body {
-  max-height: 400px;
+  /*max-height: 400px;*/
   overflow: auto;
   padding: 15px 15px 3px 15px !important;
 }
@@ -202,8 +206,8 @@ body .modal-dialog {
 }
 #awesomeBtnContainer {
     padding: 30px 100px;
-    margin-left: auto;
-    margin-right: auto;
+    /*margin-left: auto;*/
+    /*margin-right: auto;*/
 }
 
 
@@ -214,8 +218,10 @@ body .modal-dialog {
 }
 
 .bootstrap-tagsinput {
-    width: 100%;
+    text-align: center;
+    width: 40% !important;
     display:block;
+    margin: 10px auto 5px !important;
 }
 
 #tipAddrs {

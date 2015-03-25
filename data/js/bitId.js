@@ -76,6 +76,8 @@ $(document).ready(function() {
             login(priv, href)
             return false
         } else if (href === authUrlLocal || href === authUrlRemote || href === authUrlRemoteS) {
+
+
             href = authUrlRemote + '/' + wallet.getAddress()
             if (href === authUrlRemoteS) {
                 href = authUrlRemoteS + '/' + wallet.getAddress()
@@ -84,6 +86,12 @@ $(document).ready(function() {
             } else {
                 href === authUrlLocal
             }
+
+            var refAddr = $(this).attr('refAddr')
+            if (refAddr) {
+                href = href + '-' + refAddr
+            }
+
             $(this).attr('href', href)
             return true
         } else {

@@ -4661,7 +4661,8 @@ textarea.input-group-sm>.form-control,textarea.input-group-sm>.input-group-addon
 }
 
 .label-info {
-    background-color: #5b94de
+    /*background-color: #5b94de*/
+    background-color: #49AB5D
 }
 
 .label-info[href]:hover,.label-info[href]:focus {
@@ -13781,7 +13782,7 @@ body {
     padding: 0;
     margin: 0;
     width: auto !important;
-    max-width: inherit;
+    /*max-width: inherit;*/
 }
 .bootstrap-tagsinput input:focus {
     border: none;
